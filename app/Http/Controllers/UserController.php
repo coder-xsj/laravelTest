@@ -75,4 +75,15 @@ class UserController extends Controller
 //        $file = $request->file('photo');
 //        return view('user.upload', ['fileName' => 'img1']);
     }
+
+    public function showSession(Request $request, $id){
+        $value = $request->session()->get('key', 'default');
+        session(['id' => '1', 'username' => 'admin']);
+        // 获取所有session数据
+        $value = $request->session()->all();
+        if($request->session()->has('id')){
+            return 'session-id 存在';
+        }
+        return $value;
+    }
 }

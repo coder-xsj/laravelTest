@@ -136,5 +136,12 @@ Route::get('cookie/get', function(\Illuminate\Http\Request $request) {
     dd($cookie);
 });
 
-
+//session 方法
+Route::get('user/shows/{id}', 'UserController@showSession');
+//全局Session辅助函数
+Route::get('home', function(){
+    $session = Session('key');
+    //存储数据到session
+    session(['key' => 'value']);
+});
 
