@@ -25,6 +25,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('post.create');
     }
 
     /**
@@ -33,9 +34,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogPost $request)
     {
-        //
+        // 验证  --- 已放到 request/StoreBlogPost rules方法中
+//        $validateDate = $request->validate([
+//            'title' => 'required|unique:posts|max:255',
+//            'body' => 'required',
+//        ]);
+        $validateDate = $request->validate();
+//        return '验证通过';
+        //验证通过
     }
 
     /**

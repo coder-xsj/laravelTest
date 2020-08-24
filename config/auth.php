@@ -111,7 +111,7 @@ return [
     | confirmation screen. By default, the timeout lasts for three hours.
     |
     */
-
+//    用户三小时内访问应用 password.confirm 中间件的路由都不需要再次确认密码
     'password_timeout' => 10800,
 
 ];

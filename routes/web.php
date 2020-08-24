@@ -145,3 +145,18 @@ Route::get('home', function(){
     session(['key' => 'value']);
 });
 
+// 显示创建博客文章
+Route::get('post/create', 'PostController@create');
+// 存储新的博客文章
+Route::post('postStore', 'PostController@store');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test/profile', 'ProfileController@update');
+
+Route::get('/settings/security', function () {
+    // 用户在访问此路由前需要先认证并确认密码...
+})->middleware(['auth', 'password.confirm']);
