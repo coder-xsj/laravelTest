@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     //
@@ -86,4 +87,12 @@ class UserController extends Controller
         }
         return $value;
     }
+
+    public function createData(){
+        $users = DB::select('select * from users');
+        $posts = DB::table('posts')->get();
+        return view('index', ['users' => $users, 'posts' => $posts, 'title' => 'laravel project']);
+    }
+
+
 }
